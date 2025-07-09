@@ -1,18 +1,25 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, Button, StyleSheet, ImageBackground, Image } from 'react-native';
 
 export default function HomeScreen({ navigation }) {
   return (
     <ImageBackground
-      source={{ uri: 'https://i.imgur.com/FYv7tEJ.jpg' }}  // imagem online de festa junina
+    source={require('../assets/img/festajulina.jpg')}
       style={styles.container}
+      resizeMode="cover"
+
     >
-      <Text style={styles.title}>🎊 Correio Elegante Digital 🎊</Text>
-      <Text style={styles.bandeirinhas}>🏳️‍🌈🏳️‍🌈🏳️‍🌈🏳️‍🌈🏳️‍🌈</Text>
+      <Image
+        source={require('../assets/img/logo-correio.png')}
+        style={styles.logo}
+        resizeMode="contain"
+      />
+      <Text style={styles.bandeirinhas}>Feito por Thiago e Samuel</Text>
       <Button
         title="Enviar Mensagem"
         onPress={() => navigation.navigate('Conteúdo')}
-        color="#ff4500"
+        color="#ea253d"
+        
       />
     </ImageBackground>
   );
@@ -26,17 +33,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20
   },
-  title: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#fff',
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    padding: 10,
-    borderRadius: 8,
-    marginBottom: 20
+  logo: {
+    width: 350,
+    height: 200,
+    marginBottom: 10,
   },
   bandeirinhas: {
-    fontSize: 30,
-    marginBottom: 20
-  }
+    fontSize: 20,
+    marginBottom: 20,
+    fontWeight: 'bold',
+    color: 'white',
+    backgroundColor: 'rgba(0,0,0,0.5)',
+     padding: 5,
+    borderRadius: 8,
+  },
 });

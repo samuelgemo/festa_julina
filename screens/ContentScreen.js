@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, ImageBackground, Image } from 'react-native';
 
 export default function ContentScreen({ navigation }) {
   const [message, setMessage] = useState('');
@@ -7,10 +7,11 @@ export default function ContentScreen({ navigation }) {
 
   return (
     <ImageBackground
-      source={{ uri: 'https://i.imgur.com/FYv7tEJ.jpg' }}
+      source={require('../assets/img/fundo-msg.png')}
       style={styles.container}
+      resizeMode="cover"
     >
-      <Text style={styles.title}>📜 Escreva sua mensagem</Text>
+      <Text style={styles.title}>📜Escreva sua mensagem💕</Text>
       <TextInput
         style={styles.input}
         placeholder="Digite sua mensagem..."
@@ -28,7 +29,7 @@ export default function ContentScreen({ navigation }) {
       <Button
         title="Enviar Mensagem"
         onPress={() => navigation.navigate('Detalhes', { message, recipient })}
-        color="#ff4500"
+        color="#ea253d"
       />
     </ImageBackground>
   );
@@ -56,6 +57,14 @@ const styles = StyleSheet.create({
     width: '80%',
     padding: 10,
     marginVertical: 10,
-    borderRadius: 5
-  }
+    borderRadius: 5,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
 });
