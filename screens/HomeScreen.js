@@ -14,7 +14,7 @@ export default function HomeScreen({ navigation }) {
         style={styles.logo}
         resizeMode="contain"
       />
-      <Text style={styles.bandeirinhas}>Feito por Thiago e Samuel</Text>
+      <Text style={styles.descricao}>Feito por Thiago e Samuel</Text>
       <Button
         title="Enviar Mensagem"
         onPress={() => navigation.navigate('Conteúdo')}
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     height: 200,
     marginBottom: 10,
   },
-  bandeirinhas: {
+  descricao: {
     fontSize: 20,
     marginBottom: 20,
     fontWeight: 'bold',

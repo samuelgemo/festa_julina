@@ -11,7 +11,7 @@ export default function ContentScreen({ navigation }) {
       style={styles.container}
       resizeMode="cover"
     >
-      <Text style={styles.title}>📜Escreva sua mensagem💕</Text>
+      <Text style={styles.titulo}>📜Escreva sua mensagem💕</Text>
       <TextInput
         style={styles.input}
         placeholder="Digite sua mensagem..."
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20
   },
-  title: {
+  titulo: {
     fontSize: 24,
     fontWeight: 'bold',
     color: '#fff',

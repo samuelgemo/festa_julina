@@ -6,16 +6,16 @@ export default function DetailsScreen({ route, navigation }) {
 
   return (
     <ImageBackground
-      source={{ uri: 'https://i.imgur.com/FYv7tEJ.jpg' }}
+      source={require('../assets/img/fundo-envio.png')}
       style={styles.container}
     >
-      <Text style={styles.title}>💌 Mensagem Enviada!</Text>
-      <Text style={styles.message}>Para: {recipient}</Text>
-      <Text style={styles.message}>Mensagem: {message}</Text>
+      <Text style={styles.titulo}>💌Mensagem Enviada!💌</Text>
+      <Text style={styles.mensagem}>Para: {recipient}</Text>
+      <Text style={styles.mensagem}>Mensagem: {message}</Text>
       <Button
-        title="Voltar para a Home"
+        title="Voltar para O Início"
         onPress={() => navigation.navigate('Home')}
-        color="#ff4500"
+        color="#ea253d"
       />
     </ImageBackground>
   );
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20
   },
-  title: {
+  titulo: {
     fontSize: 26,
     fontWeight: 'bold',
     color: '#fff',
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 20
   },
-  message: {
+  mensagem: {
     fontSize: 18,
     color: '#fff',
     backgroundColor: 'rgba(0,0,0,0.5)',

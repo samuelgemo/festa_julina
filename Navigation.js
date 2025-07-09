@@ -23,8 +23,25 @@ export default function Navigation() {
       fontWeight: 'bold',
     },
   }} />
-        <Stack.Screen name="Conteúdo" component={ContentScreen} />
-        <Stack.Screen name="Detalhes" component={DetailsScreen} />
+        <Stack.Screen name="Conteúdo" component={ContentScreen} options={{
+          headerStyle: {
+          backgroundColor: '#fdc4f1',
+        },
+        headerTintColor: '#000',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+        }}/>
+        <Stack.Screen name="Detalhes" component={DetailsScreen} options={{
+          title: 'Mensagem Enviada!',
+          headerStyle: {
+          backgroundColor: '#ffa3a5',
+        },
+        headerTintColor: '#000',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+        }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
