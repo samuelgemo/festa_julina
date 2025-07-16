@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, Button, StyleSheet, ImageBackground } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function DetailsScreen({ route, navigation }) {
-  const { message, recipient } = route.params;
+  const { mensagem, destino, remetente } = route.params;
+
+  useEffect(() => {
+    salvarMensagem();
+  }, []);
+
+  const salvarMensagem = async () => {
+    try {
+      const novaMensagem = { remetente, destino, mensagem };
+      const historico = await AsyncStorage.getItem('historicoMensagens');
+      const mensagens = historico ? JSON.parse(historico) : [];
+      mensagens.push(novaMensagem);
+      await AsyncStorage.setItem('historicoMensagens', JSON.stringify(mensagens));
+    } catch (error) {
+      console.error('Erro ao salvar mensagem:', error);
+    }
+  };
 
   return (
     <ImageBackground
@@ -10,12 +27,13 @@ export default function DetailsScreen({ route, navigation }) {
       style={styles.container}
     >
       <Text style={styles.titulo}>💌Mensagem Enviada!💌</Text>
-      <Text style={styles.mensagem}>Para: {recipient}</Text>
-      <Text style={styles.mensagem}>Mensagem: {message}</Text>
+      <Text style={styles.mensagem}>De: {remetente}</Text>
+      <Text style={styles.mensagem}>Para: {destino}</Text>
+      <Text style={styles.mensagem}>Mensagem: {mensagem}</Text>
       <Button
         title="Voltar para O Início"
         onPress={() => navigation.navigate('Home')}
-        color="#ea253d"
+        color="#ffa3a5"
       />
     </ImageBackground>
   );

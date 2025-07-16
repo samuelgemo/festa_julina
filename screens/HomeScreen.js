@@ -4,10 +4,9 @@ import { View, Text, Button, StyleSheet, ImageBackground, Image } from 'react-na
 export default function HomeScreen({ navigation }) {
   return (
     <ImageBackground
-    source={require('../assets/img/festajulina.jpg')}
+      source={require('../assets/img/festajulina.jpg')}
       style={styles.container}
       resizeMode="cover"
-
     >
       <Image
         source={require('../assets/img/logo-correio.png')}
@@ -15,12 +14,24 @@ export default function HomeScreen({ navigation }) {
         resizeMode="contain"
       />
       <Text style={styles.descricao}>Feito por Thiago e Samuel</Text>
-      <Button
-        title="Enviar Mensagem"
-        onPress={() => navigation.navigate('Conteúdo')}
-        color="#ea253d"
-        
-      />
+
+      <View style={{ width: '100%', paddingHorizontal: 40 }}>
+        <View style={{ marginBottom: 16 }}>
+          <Button
+            title="Enviar Mensagem"
+            onPress={() => navigation.navigate('Conteúdo')}
+            color="#24dd22"
+          />
+        </View>
+
+        <View>
+          <Button
+            title="Ver histórico"
+            onPress={() => navigation.navigate('Histórico')}
+            color="#24dd22"
+          />
+        </View>
+      </View>
     </ImageBackground>
   );
 }
@@ -31,7 +42,7 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20
+    padding: 20,
   },
   logo: {
     width: 350,
@@ -44,7 +55,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'white',
     backgroundColor: 'rgba(0,0,0,0.5)',
-     padding: 5,
+    padding: 5,
     borderRadius: 8,
   },
 });
